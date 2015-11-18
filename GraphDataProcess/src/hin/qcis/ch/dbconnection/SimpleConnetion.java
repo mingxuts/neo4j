@@ -33,6 +33,28 @@ public class SimpleConnetion {
 			return null;
 		} 
 	}
+	
+	public Connection getConnection_DBLP_MySQL() {
+		try {
+			String url = "jdbc:mysql://qcis4/dblp";
+			try {
+				Class.forName ("com.mysql.jdbc.Driver").newInstance ();
+			} catch (InstantiationException | IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			Connection conn = DriverManager.getConnection (url, "root", "passwd");
+			return conn;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public Connection getConnection_EDW() {
 		try {
